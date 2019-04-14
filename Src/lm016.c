@@ -17,12 +17,14 @@ void lcd_init(lcd_t * lcd){
 		lcd_putchar(lcd,0x28);
 	else
 		lcd_putchar(lcd,0x38);
-	//Display off:
-	lcd_putchar(lcd,0x08);
-	//lcd clear:
-	lcd_putchar(lcd,0x01);
+	//Display on:
+	lcd_putchar(lcd,0x0E);
 	//Entry mode:
 	lcd_putchar(lcd,0x06);
+	//lcd clear:
+	lcd_putchar(lcd,0x01);
+	//Return home:
+	lcd_putchar(lcd,0x02);
 }
 
 
