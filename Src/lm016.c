@@ -3,6 +3,26 @@
 //Rs HD7 HD6 HD5 HD4 LD3 LD2 LD1 LD0
 void lcd_init(lcd_t * lcd){
 
+	for(int i = 0; i <= 7; i++){
+			HAL_GPIO_WritePin(lcd->data_ports[i], lcd->data_pins[i], GPIO_PIN_RESET);
+	}
+	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(lcd->rs_port, lcd->rs_pin, GPIO_PIN_RESET);
+	HAL_Delay(500);
+	//lcd initialization:
+	lcd_putchar(lcd,0x33);
+	lcd_putchar(lcd,0x32);
+	//lcd Functionset:
+	if(lcd->mode == 1)
+		lcd_putchar(lcd,0x28);
+	else
+		lcd_putchar(lcd,0x38);
+	//Display off:
+	lcd_putchar(lcd,0x08);
+	//lcd clear:
+	lcd_putchar(lcd,0x01);
+	//Entry mode:
+	lcd_putchar(lcd,0x06);
 }
 
 
