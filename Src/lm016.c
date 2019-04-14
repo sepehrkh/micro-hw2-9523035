@@ -21,14 +21,12 @@ void lcd_init(lcd_t * lcd){
 	lcd_putchar(lcd,0x0E);
 	//Entry mode:
 	lcd_putchar(lcd,0x06);
-	//lcd clear:
-	lcd_putchar(lcd,0x01);
-	//Return home:
-	lcd_putchar(lcd,0x02);
+	//lcd clear and return home:
+	lcd_clear(lcd);
 }
 
 
-void lcd_putchar(lcd_t * lcd, uint8_t character){
+void lcd_putchar(lcd_t * lcd, uint16_t character){
 			HAL_Delay(1);
 			
 			if((character & 0x100) == 0x100)
@@ -130,11 +128,28 @@ void lcd_putchar(lcd_t * lcd, uint8_t character){
 			HAL_GPIO_WritePin(lcd->rs_port, lcd->rs_pin, GPIO_PIN_RESET);
 }
 void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
-	
+	if(row == 2)
+		for(int i = 1; i < 17; i++){
+			lcd_putchar(lcd,0x1FE);
+		}
+		for(int j = 1; j < col; j++){
+			lcd_putchar(lcd,0x1FE);
+		}
 }
 void lcd_clear(lcd_t * lcd){
-	
+	//lcd clear:
+	lcd_putchar(lcd,0x01);
+	//Return home:
+	lcd_putchar(lcd,0x02);
 }
 void lcd_puts(lcd_t * lcd, char* str){
-	
+	char c;
+	char* s = str;
+	int a;
+	for(int i = 0; i < strlen(str); i++){
+		c = *s;
+		s += 1;
+		a = c + 0x100;
+		lcd_putchar(lcd,a);
+	}
 }
