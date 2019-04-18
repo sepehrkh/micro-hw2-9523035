@@ -1,8 +1,7 @@
 #include "lm016.h"
 #include "stm32f4xx_hal_gpio.h"
+
 int c = 0;
-int a = 0;
-int cr = 1;
 void lcd_init(lcd_t * lcd){
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(lcd->rs_port, lcd->rs_pin, GPIO_PIN_RESET);
@@ -15,9 +14,9 @@ void lcd_init(lcd_t * lcd){
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-	HAL_Delay(2);
+	HAL_Delay(5);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-	HAL_Delay(30);
+	HAL_Delay(5);
 	
 	HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
@@ -26,9 +25,9 @@ void lcd_init(lcd_t * lcd){
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-	HAL_Delay(2);
+	HAL_Delay(5);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-	HAL_Delay(30);
+	HAL_Delay(5);
 	
 	HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
@@ -37,9 +36,9 @@ void lcd_init(lcd_t * lcd){
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-	HAL_Delay(2);
+	HAL_Delay(5);
 	HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-	HAL_Delay(30);
+	HAL_Delay(5);
 	
 	HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
@@ -48,9 +47,9 @@ void lcd_init(lcd_t * lcd){
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
 	}
 	//lcd Functionset:
@@ -58,18 +57,18 @@ void lcd_init(lcd_t * lcd){
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
 		
 		HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_RESET);
 	}
 	if(lcd->mode == 0){
@@ -78,9 +77,9 @@ void lcd_init(lcd_t * lcd){
 		HAL_GPIO_WritePin(lcd->data_ports[3], lcd->data_pins[3], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[3], lcd->data_pins[3], GPIO_PIN_RESET);
@@ -89,18 +88,18 @@ void lcd_init(lcd_t * lcd){
 	if(lcd->mode == 1){
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 	
 		HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_SET);
 		HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
@@ -111,9 +110,9 @@ void lcd_init(lcd_t * lcd){
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[3], lcd->data_pins[3], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_RESET);
@@ -122,17 +121,17 @@ void lcd_init(lcd_t * lcd){
 	if(lcd->mode == 1){
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 
 		HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
 	}
@@ -141,9 +140,9 @@ void lcd_init(lcd_t * lcd){
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_RESET);
 	}
@@ -181,7 +180,6 @@ void lcd_putchar(lcd_t * lcd, uint8_t character){
 			HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 			
 			if(lcd -> mode == 0 ){
-				
 			if((character & 0x08) == 0x08)
 			HAL_GPIO_WritePin(lcd->data_ports[3], lcd->data_pins[3], GPIO_PIN_SET);
 			else
@@ -204,7 +202,7 @@ void lcd_putchar(lcd_t * lcd, uint8_t character){
 			}
 			HAL_Delay(1);
 			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-			HAL_Delay(2);
+			HAL_Delay(5);
 			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
 			HAL_Delay(5);
 			
@@ -237,7 +235,7 @@ void lcd_putchar(lcd_t * lcd, uint8_t character){
 			}
 			HAL_Delay(1);
 			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-			HAL_Delay(2);
+			HAL_Delay(5);
 			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
 			HAL_Delay(5);
 			
@@ -247,10 +245,8 @@ void lcd_putchar(lcd_t * lcd, uint8_t character){
 				HAL_GPIO_WritePin(lcd->data_ports[i], lcd->data_pins[i], GPIO_PIN_RESET);
 			}
 			c += 1;
-			if (c == 16){
-				cr = 1;
+			if (c == 16)
 				lcd_set_curser(lcd,2,1);
-			}
 }
 
 void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
@@ -259,27 +255,19 @@ void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
 	for(int i = 0; i <= 7; i++){
 		HAL_GPIO_WritePin(lcd->data_ports[i], lcd->data_pins[i], GPIO_PIN_RESET);
 	}
-	if (c <= 16 & row == 2){
-		if(cr == 1){
-			a = col + 40 - c;
-			cr = 0;
-		}
-		else
-			a = col + 16 - c;
-	}
-	if (c >= 17 & row == 2 & col > c - 16)
-		a = col - c + 16;
-	if (c <= 16 & row == 1 & col >= c)
-		a = col - c;
-	if (c >= 17 & row == 2 & col < c - 16)
-		a = +col - c + 16;
-	if (c < 17 & row == 1 & col < c)
-		a = col - c;
-	if(c >= 16 & row == 1)
-		a = -c - 24 + col;
-	if(lcd->mode == 0){
-		if(a > 0){
-			for(int i=1;i<a;i++){
+	if(row == 2){
+		c = 15 + col;
+		if(lcd->mode == 0){
+			HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_SET);
+			HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
+			for(int i=1;i<col;i++){
 				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
 				HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_SET);
 				HAL_Delay(1);
@@ -291,8 +279,22 @@ void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
 				HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_RESET);
 			}
 		}
-		if(a < 0){
-			for(int i=1;i<=-a + 1;i++){
+		if(lcd->mode == 1){
+			HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_SET);
+			HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			HAL_GPIO_WritePin(lcd->data_ports[7], lcd->data_pins[7], GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			for(int i=1;i<col;i++){
 				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
 				HAL_Delay(1);
 				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
@@ -300,19 +302,6 @@ void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
 				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
 				HAL_Delay(5);
 				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
-			}
-		}
-	}
-	if(lcd->mode == 1){
-		HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
-		HAL_Delay(1);
-		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
-		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(5);
-		HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
-		if(a > 0){
-			for(int i=1;i<a;i++){
 				HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
 				HAL_Delay(1);
 				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
@@ -322,31 +311,59 @@ void lcd_set_curser(lcd_t * lcd, uint16_t row, uint16_t col){
 				HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
 			}
 		}
-		if(a < 0){
-			for(int i=1;i<=-a + 1;i++){
+	}
+	if(row == 1){
+		c = col - 1;
+		if(lcd->mode == 0){
+			HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_SET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_RESET);
+			for(int i=1;i<col;i++){
+				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
+				HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_SET);
 				HAL_Delay(1);
 				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
 				HAL_Delay(2);
 				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
 				HAL_Delay(5);
+				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(lcd->data_ports[2], lcd->data_pins[2], GPIO_PIN_RESET);
 			}
 		}
-	}
-	if (c <= 16 & row == 2)
-		c = 15 + col;
-	if (c >= 17 & row == 2 & col > c - 16)
-		c = 15 + col;
-	if (c <= 16 & row == 1 & col >= c){
-		c = col - 1;
-		cr = 1;
-	}
-	if (c >= 17 & row == 2 & col < c - 16)
-		c = 15 + col;
-	if (c < 17 & row == 1 & col < c)
-		c = col - 1;
-	if(c >= 16 & row == 1){
-		c = col - 1;
-		cr = 1;
+		if(lcd->mode == 1){
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+			HAL_Delay(2);
+			HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+			HAL_Delay(5);
+			HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
+			for(int i=1;i<col;i++){
+				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
+				HAL_Delay(1);
+				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+				HAL_Delay(2);
+				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+				HAL_Delay(5);
+				HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_SET);
+				HAL_Delay(1);
+				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
+				HAL_Delay(2);
+				HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
+				HAL_Delay(5);
+				HAL_GPIO_WritePin(lcd->data_ports[6], lcd->data_pins[6], GPIO_PIN_RESET);
+			}
+		}
 	}
 }
 
@@ -360,52 +377,50 @@ void lcd_clear(lcd_t * lcd){
 	if(lcd->mode == 1){
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 
 		HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[4], lcd->data_pins[4], GPIO_PIN_RESET);
 	}
 	if(lcd->mode == 0){
-
 		HAL_GPIO_WritePin(lcd->data_ports[0], lcd->data_pins[0], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[0], lcd->data_pins[0], GPIO_PIN_RESET);
 	}
 	//Return home:
 	if(lcd->mode == 1){
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[5], lcd->data_pins[5], GPIO_PIN_RESET);
 	}
 	if(lcd->mode == 0){
-
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_SET);
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_SET);
-		HAL_Delay(2);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->en_port, lcd->en_pin, GPIO_PIN_RESET);
-		HAL_Delay(30);
+		HAL_Delay(5);
 		HAL_GPIO_WritePin(lcd->data_ports[1], lcd->data_pins[1], GPIO_PIN_RESET);
 	}
 }
